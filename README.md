@@ -77,9 +77,9 @@ The third argument (true) indicates the wallet will only be unlocked for staking
 
 #### Staking state check
 
-If you save this script to the host's ´´´/etc/cron.hourly´´´ directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
+If you save this script to the host's ```/etc/cron.hourly``` directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
 
-´´´
+```
 #!/bin/bash
 CONTAINER_NAME=qtum
 if [ ! $(docker ps -q -f name=${CONTAINER_NAME}) ]; then
@@ -89,7 +89,7 @@ if [ ! $(docker exec ${CONTAINER_NAME} qtum-cli getstakinginfo | grep -qE '.*sta
     >&2 echo "Warning: wallet is not staking!"
     exit 1
 fi
-´´´
+```
 
 Don't forget to chmod +x it and don't use a file extension or it will not run.
 
