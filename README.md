@@ -49,6 +49,7 @@ Followed by:
 
 If the passphrase was not accepted, an error message will be displayed. 
 Alternatively, you could also check if the unlocked_until attribute is > 0 with ```./qtum-cli.sh getwalletinfo | grep unlocked_until```
+
 A value > 0 means the wallet is encrypted and the above unlocking command was successful.
 
 ### Backing up the wallet
@@ -65,6 +66,7 @@ In order to stake, QTUM tokens have to be transferred to this address.
 Once the tokens are available in the wallet, the staking requirement has been met (not moved for 500 blocks) and the wallet has been unlocked, staking will finally commence.
 To unlock the wallet just for staking:
 ```./qtum-cli.sh -stdin walletpassphrase```
+
 Followed by:
 1. The wallet's passphrase and \<ENTER\>
 2. A numeric unlock duration in seconds, but this time we will use a high value like 99999999 followed by \<ENTER\>
@@ -75,9 +77,10 @@ The third argument (true) indicates the wallet will only be unlocked for staking
 
 #### Staking state check
 
-If you save this script to the host's /etc/cron.hourly directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
+If you save this script to the host's ´´´/etc/cron.hourly´´´ directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
 
-```#!/bin/bash
+´´´
+#!/bin/bash
 CONTAINER_NAME=qtum
 if [ ! $(docker ps -q -f name=${CONTAINER_NAME}) ]; then
     exit 0
@@ -85,7 +88,8 @@ fi
 if [ ! $(docker exec ${CONTAINER_NAME} qtum-cli getstakinginfo | grep -qE '.*staking.*false.*')]; then
     >&2 echo "Warning: wallet is not staking!"
     exit 1
-fi```
+fi
+´´´
 
 Don't forget to chmod +x it and don't use a file extension or it will not run.
 
