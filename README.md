@@ -26,10 +26,7 @@ Once the container is up and running, qtumd will start syncing the blockchain wh
 ### Encrypting the wallet
 ```docker-compose exec qtum qtum-cli -stdin encryptwallet```
 
-Enter a passphrase and hit \<ENTER\> and \<CTRL-D\> to terminate the input. 
-There will be no output shown until you hit \<CTRL-D\>
-
-There's an option to pass the passphrase via the command line but it's less secure since most shells save a command history (and the passphrase entered).
+Enter a passphrase and hit \<ENTER\> and \<CTRL-D\> to terminate the input. *Please be patient after pressing \<CTRL-D\> since it may take a while to encrypt the wallet.* There's an option to pass the passphrase via the command line but it's less secure since most shells save a command history (and the passphrase entered).
 
 Once the wallet has been encrypted, the following message will be displayed: 
 ```wallet encrypted; Qtum server stopping, restart to run with encrypted wallet. The keypool has been flushed and a new HD seed was generated (if you are using HD). You need to make a new backup.```
@@ -77,7 +74,7 @@ The third argument (true) indicates the wallet will only be unlocked for staking
 
 #### Staking state check
 
-If you save this script to the host's ```/etc/cron.hourly``` directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
+If you save this script to *the host's* ```/etc/cron.hourly``` directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
 
 ```
 #!/bin/bash
@@ -85,7 +82,7 @@ CONTAINER_NAME=qtum
 if [ ! $(docker ps -q -f name=${CONTAINER_NAME}) ]; then
     exit 0
 fi
-if [ ! $(docker exec ${CONTAINER_NAME} qtum-cli getstakinginfo | grep -qE '.*staking.*false.*')]; then
+if docker exec ${CONTAINER_NAME} qtum-cli getstakinginfo | grep -qE '.*staking.*false.*'; then
     >&2 echo "Warning: wallet is not staking!"
     exit 1
 fi
