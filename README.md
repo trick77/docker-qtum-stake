@@ -5,7 +5,7 @@ Docker image that runs the QTUM qtumd node in a container for easy QTUM staking.
 ## Requirements
 - Docker in a x86_64 environment
 - Python's docker-compose
-- Since QTUM is PoS you also need tokens in order to stake
+- Since QTUM is PoS you also need coins in order to stake
 - The ability to remember a passphrase for your QTUM wallet
 
 ## A word of caution 
@@ -56,11 +56,11 @@ Now would be a good time to backup the encrypted wallet with the ```backup-walle
 ### Displaying the account's default address
 ```./qtum-cli.sh getaccountaddress '""'```
 
-In order to stake, QTUM tokens have to be transferred to this address.
+In order to stake, QTUM coins have to be transferred to this address.
 
 ### Starting to stake QTUM
 
-Once the tokens are available in the wallet, the staking requirement has been met (not moved for 500 blocks) and the wallet has been unlocked, staking will finally commence.
+Once the coins are available in the wallet, the staking requirement has been met (not moved for 500 blocks) and the wallet has been unlocked, staking will finally commence.
 To unlock the wallet just for staking:
 ```./qtum-cli.sh -stdin walletpassphrase```
 
@@ -70,7 +70,7 @@ Followed by:
 3. true
 4. \<CTRL-D\>
 
-The third argument (true) indicates the wallet will only be unlocked for staking. No tokens can be moved if the wallet is opened this way. If the container is restarted, the wallet has to be unlocked for staking again. 
+The third argument (true) indicates the wallet will only be unlocked for staking. No coins can be moved if the wallet is opened this way. If the container is restarted, the wallet has to be unlocked for staking again. 
 
 #### Staking state check
 
