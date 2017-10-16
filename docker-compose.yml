@@ -8,7 +8,7 @@ services:
     image: qtum:latest
     environment:
       - DATA_DIR=/home/qtum/.qtum
-#    env_file: env
+    env_file: env
     ports:
     - "3888:3888"
     volumes:

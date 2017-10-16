@@ -54,7 +54,7 @@ A value > 0 means the wallet is encrypted and the above unlocking command was su
 
 ### Backing up the wallet
 
-Now would be a good time to backup the encrypted wallet with the ```backup-wallet.sh``` shell scrip. Make sure to store the wallet on multiple mediums before continuing.
+Now would be a good time to backup the encrypted wallet with the ```backup-wallet.sh``` shell script. Make sure to store the wallet on multiple mediums before continuing.
 
 ### Displaying the wallet's default address
 ```./qtum-cli.sh getwalletaddress ""```
