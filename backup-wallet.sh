@@ -11,6 +11,6 @@ if ! docker exec ${CONTAINER_NAME} qtum-cli getwalletinfo | grep -q unlocked_unt
 fi
 
 mkdir -p ${BACKUP_PATH}
-docker cp ${CONTAINER_NAME}:${DATA_DIR}/${WALLET_NAME} $BACKUP_PATH
+docker cp ${CONTAINER_NAME}:${DATA_DIR}/${WALLET_NAME} $BACKUP_PATH/wallet.dat-$(date +"%Y-%m-%d_%H-%M-%S")
 echo "Wallet was saved to ${BACKUP_PATH}"
 echo "Please make sure to backup your wallet to different mediums as well."
