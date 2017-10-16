@@ -1,0 +1,8 @@
+CONTAINER_NAME=qtum
+DATA_DIR=/home/qtum/.qtum
+WALLET_NAME=wallet.dat
+BACKUP_PATH=./backup
+
+# The RPC port will not be exposed but it's still not a bad idea to change these default values
+QTUM_RPC_USER=qtum
+QTUM_RPC_PASSWORD=password
