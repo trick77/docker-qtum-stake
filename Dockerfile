@@ -1,7 +1,7 @@
 FROM debian:stretch-slim
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get update \
-	&& apt-get install -qq --no-install-recommends wget ca-certificates \
+RUN apt-get update \
+	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq --no-install-recommends wget ca-certificates \
 	&& rm -rf /var/lib/apt/lists/*
 
 ENV MAINNET_VERSION 1.0.2
