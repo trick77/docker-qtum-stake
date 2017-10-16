@@ -1,8 +1,6 @@
 FROM debian:stretch-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get update \
+RUN DEBIAN_FRONTEND=noninteractive apt-get update \
 	&& apt-get install -qq --no-install-recommends wget ca-certificates \
 	&& rm -rf /var/lib/apt/lists/*
 
