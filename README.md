@@ -54,7 +54,7 @@ A value > 0 means the wallet is encrypted and the above unlocking command was su
 Now would be a good time to backup the encrypted wallet with the ```backup-wallet.sh``` shell script. Make sure to store the wallet on multiple mediums before continuing.
 
 ### Displaying the account's default address
-```./qtum-cli.sh getaccountaddress ""```
+```./qtum-cli.sh getaccountaddress '""'```
 
 In order to stake, QTUM tokens have to be transferred to this address.
 
