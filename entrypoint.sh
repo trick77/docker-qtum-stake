@@ -1,6 +1,6 @@
 #!/bin/bash -e
 mkdir -p ${DATA_DIR}
-if [[ ! -s ${DATA_DIR} ]]; then
+if [[ ! -s ${DATA_DIR}/qtum.conf ]]; then
     cat <<EOF > ${DATA_DIR}/qtum.conf
 printtoconsole=1
 rpcallowip=::/0
