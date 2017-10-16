@@ -19,13 +19,15 @@ Clone this repository first and cd to its directory.
 ### Starting the QTUM node
 Thanks to docker-compose starting the node is as easy as it gets:
 ```docker-compose up -d```
+
 The docker image will be built on the fly if it doesn't exist.
 Once the container is up and running, qtumd will start syncing the blockchain which may take a while. To see the progress use something like ```docker-compose logs -f --tail="100"```
 
 ### Encrypting the wallet
 ```docker-compose exec qtum qtum-cli -stdin encryptwallet```
-Enter a passphrase and hit <ENTER> and <CTRL-D> to terminate the input. 
-There will be no output shown until you hit <CTRL-D>
+
+Enter a passphrase and hit \<ENTER\> and \<CTRL-D\> to terminate the input. 
+There will be no output shown until you hit \<CTRL-D\>
 
 There's an option to pass the passphrase via the command line but it's less secure since most shells save a command history (and the passphrase entered).
 
@@ -39,10 +41,11 @@ Restart the container to use the encrypted wallet:
 
 To confirm the wallet was encrypted with the intended passphrase:
  ```./qtum-cli.sh -stdin walletpassphrase```
+
 Followed by:
-1. The wallet's passphrase and <ENTER>
-2. An numeric unlock duration in seconds, i.e. 120 followed by <ENTER>
-3. <CTRL-D>
+1. The wallet's passphrase and \<ENTER\>
+2. An numeric unlock duration in seconds, i.e. 120 followed by \<ENTER\>
+3. \<CTRL-D\>
 
 If the passphrase was not accepted, an error message will be displayed. 
 Alternatively, you could also check if the unlocked_until attribute is > 0 with ```./qtum-cli.sh getwalletinfo | grep unlocked_until```
@@ -59,20 +62,20 @@ In order to stake, QTUM tokens have to be transferred to this address.
 
 ### Starting to stake QTUM
 
-Once the tokens are available in the wallet, the staking requirement has been met (not moved for 500 blocks) and the wallet has been unlocked for staking, staking will finally commence.
-To unlock the wallet for staking:
+Once the tokens are available in the wallet, the staking requirement has been met (not moved for 500 blocks) and the wallet has been unlocked, staking will finally commence.
+To unlock the wallet just for staking:
 ```./qtum-cli.sh -stdin walletpassphrase```
 Followed by:
-1. The wallet's passphrase and <ENTER>
-2. A numeric unlock duration in seconds, but this time we will use a high value like 99999999 followed by <ENTER>
+1. The wallet's passphrase and \<ENTER\>
+2. A numeric unlock duration in seconds, but this time we will use a high value like 99999999 followed by \<ENTER\>
 3. true
-4. <CTRL-D>
+4. \<CTRL-D\>
 
 The third argument (true) indicates the wallet will only be unlocked for staking. No tokens can be moved if the wallet is opened this way. If the container is restarted, the wallet has to be unlocked for staking again. 
 
 #### Staking state check
 
-If you save this script to the host's /etc/cron.hourly directory (if available in your distro) it will alert root periodically if staking is not enabled.
+If you save this script to the host's /etc/cron.hourly directory (if available in your Linux distro) it will alert root periodically if staking is not enabled.
 
 ```#!/bin/bash
 CONTAINER_NAME=qtum
