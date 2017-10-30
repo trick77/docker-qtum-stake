@@ -67,7 +67,7 @@ To unlock the wallet just for staking:
 Followed by:
 1. The wallet's passphrase and \<ENTER\>
 2. A numeric unlock duration in seconds, but this time we will use a high value like 99999999 followed by \<ENTER\>
-3. true
+3. true \<ENTER\>
 4. \<CTRL-D\>
 
 The third argument (true) indicates the wallet will only be unlocked for staking. No coins can be moved if the wallet is opened this way. If the container is restarted, the wallet has to be unlocked for staking again. 
