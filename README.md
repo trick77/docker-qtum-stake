@@ -2,6 +2,8 @@
 
 Docker image that runs the QTUM qtumd node in a container for easy QTUM staking.
 
+Just want to run a full node without staking? Please see the instructions below.
+
 ## Requirements
 - Docker in a x86_64 environment
 - Python's docker-compose
@@ -22,6 +24,12 @@ Thanks to docker-compose starting the node is as easy as it gets:
 
 The docker image will be built on the fly if it doesn't exist.
 Once the container is up and running, qtumd will start syncing the blockchain which may take a while. To see the progress use something like ```docker-compose logs -f --tail="100"```
+
+#### Just want to run a full node?
+
+You don't need to have any QTUM in your wallet in order to just run a full node. A full node helps the QTUM network. If you have a virtual private server (VPS), please contact your hosting provider first since 
+some providers prohibit running anything related to crypto currencies/mining (even though it's not possible to PoW mine with QTUM). 
+A ```docker-compose up -d``` will run a full node, you can skip reading the rest of this documentation if you don't want to stake QTUM.
 
 ### Encrypting the wallet
 ```docker-compose exec qtum qtum-cli -stdin encryptwallet```
