@@ -27,9 +27,9 @@ Once the container is up and running, qtumd will start syncing the blockchain wh
 
 #### Just want to run a full node?
 
-You don't need to have any QTUM in your wallet in order to just run a full node. A full node helps the QTUM network. If you have a virtual private server (VPS), please contact your hosting provider first since 
+You don't need to have any QTUM in your wallet in order to just run a full node. Full nodes help the QTUM network by accepting transactions and blocks from other full nodes, validating those transactions and blocks, and then relaying them to further full nodes. If you plan to run a full node on a virtual private server (VPS), please contact your hosting provider first since 
 some providers prohibit running anything related to crypto currencies/mining (even though it's not possible to PoW mine with QTUM). 
-A ```docker-compose up -d``` will run a full node, you can skip reading the rest of this documentation if you don't want to stake QTUM.
+A ```docker-compose up -d``` will run a full node, you can skip the rest of this documentation if you don't want to stake QTUM.
 
 ### Encrypting the wallet
 ```docker-compose exec qtum qtum-cli -stdin encryptwallet```
