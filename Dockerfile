@@ -4,8 +4,8 @@ RUN apt-get update \
 	&& DEBIAN_FRONTEND=noninteractive apt-get install -qq --no-install-recommends wget ca-certificates \
 	&& rm -rf /var/lib/apt/lists/*
 
-ARG MAINNET_VERSION=0.14.13
-ARG QTUM_VERSION=0.14.13
+ARG MAINNET_VERSION=0.14.14
+ARG QTUM_VERSION=0.14.14
 ARG QTUM_URL=https://github.com/qtumproject/qtum/releases/download/mainnet-ignition-v${MAINNET_VERSION}/qtum-${QTUM_VERSION}-x86_64-linux-gnu.tar.gz
 
 RUN QTUM_DIST=$(basename $QTUM_URL) \
